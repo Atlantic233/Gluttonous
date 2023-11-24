@@ -19,7 +19,6 @@ public:
 	void turn();
 	void draw(int leftMargin,int topMargin);
 	bool snakeInMap(const vector<vector<int>>& map);
-	Point getBody();
 
 private:
 	Point unityBody;

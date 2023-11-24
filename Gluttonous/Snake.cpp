@@ -84,7 +84,19 @@ void Snake::draw(int leftMargin, int topMargin)
 
 bool Snake::snakeInMap(const vector<vector<int>>& map)
 {
-	return false;
+	int rows = map.size();
+	int cols = map[0].size();
+	for (int i = 0; i < Body.size() - 1; i++)
+	{
+		if (Body[i].col < 0 || Body[i].col >= cols ||
+			Body[i].row < 0 || Body[i].row >= rows ||
+			map[Body[i].row][Body[i].col])
+		{
+			return false;
+		}
+	}
+	return true;
 }
+
 
 

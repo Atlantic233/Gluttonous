@@ -67,6 +67,9 @@ void Gluttonou::play()
 		{
 			update = false;
 			//更新游戏数据
+			if (!mysnake->snakeInMap(map)) {
+
+			}
 			move();
 			//渲染游戏画面
 			updateWindow();
