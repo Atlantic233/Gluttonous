@@ -21,6 +21,7 @@ private:
 	void move();
 	void turn();
 	void growup();
+	void mapIfo(vector<vector<int>> map);
 	
 private:
 	int delay;

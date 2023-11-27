@@ -120,3 +120,8 @@ void Gluttonou::turn()
 void Gluttonou::growup()
 {
 }
+
+void Gluttonou::mapIfo(vector<vector<int>> map)
+{
+	
+}

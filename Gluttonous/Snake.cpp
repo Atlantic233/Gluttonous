@@ -11,7 +11,7 @@ Snake::Snake()
 	if (imgs[0] == NULL)
 	{
 		IMAGE imgTmp;
-		loadimage(&imgTmp, "res/snakebd2.png");
+		loadimage(&imgTmp, "res/snakebd3.png");
 
 		SetWorkingImage(&imgTmp);
 		for (int i = 0; i < 3; i++)
@@ -96,6 +96,11 @@ bool Snake::snakeInMap(const vector<vector<int>>& map)
 		}
 	}
 	return true;
+}
+
+Point Snake::getSnakeInfo()
+{
+	
 }
 
 
