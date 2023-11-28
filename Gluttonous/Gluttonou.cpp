@@ -1,6 +1,7 @@
 #include "Gluttonou.h"
 #include "Snake.h"
 #include <random>
+#include <conio.h>
 
 const int SPEED_NORMAL = 500;
 const int SPEED_QUIK = 50;
@@ -93,15 +94,21 @@ void Gluttonou::play()
 
 void Gluttonou::keyEvent()
 {
+	if (kbhit()) {
+		getch();
+	}
 }
 
 void Gluttonou::updateWindow()
 {
 	putimage(0, 0, &bgImg);//»æÖÆ±³¾°Í¼Æ¬
 
-	
-	mysnake->draw(leftm, topm);
-	foods->drawFood();
+	BeginBatchDraw();
+
+	mysnake->draw(leftm, topm);//»­Éß
+	foods->drawFood();//»­Ê³Îï
+
+	EndBatchDraw();
 }
 
 int Gluttonou::getDelay()
