@@ -7,7 +7,7 @@ struct Point
 {
 	int col;
 	int row;
-	int directin;
+	int direction;
 };
 
 class Snake
@@ -19,7 +19,7 @@ public:
 	void turn();
 	void draw(int leftMargin,int topMargin);
 	bool snakeInMap(const vector<vector<int>>& map);
-	Point getSnakeInfo();
+	Point getSnakeInfo(int i);
 
 private:
 	Point unityBody;

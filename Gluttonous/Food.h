@@ -1,18 +1,26 @@
 #pragma once
+#include <vector>
+#include <graphics.h>
+using namespace std;
+
 struct Pos {
-	int x;
-	int y;
+	int col;
+	int row;
 };
 
 class Food
 {
 public:
-	Food();
+	Food(static vector<vector<int>> map);
 	void setFood();
-	void destroy();
+	void destroyFood();
 
 private:
-	Pos position;
-
+	Pos food;
+	int foodType;
+	static int size;
+	IMAGE* BigFood;
+	IMAGE* SmallFood;
+	static IMAGE* imgs[2];
 };
 

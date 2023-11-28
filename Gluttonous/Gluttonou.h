@@ -2,6 +2,7 @@
 #include<vector>
 #include<graphics.h>
 #include"Snake.h"
+#include"Food.h"
 using namespace std;
 
 class Gluttonou
@@ -36,5 +37,6 @@ private:
 	IMAGE bgImg;
 
 	Snake* mysnake;
+	Food* foods;
 };
 

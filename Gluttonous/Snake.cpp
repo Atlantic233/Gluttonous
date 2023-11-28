@@ -27,7 +27,7 @@ Snake::Snake()
 	{
 		unityBody.row = 15;
 		unityBody.col = 15 + i;
-		unityBody.directin = 0;
+		unityBody.direction = 0;
 		Body.push_back(unityBody);
 	}
 
@@ -42,7 +42,7 @@ void Snake::growup()
 
 void Snake::move()
 {
-	if (Body[0].directin == 0)
+	if (Body[0].direction == 0)
 	{
 		int lenth = Body.size();
 		for (int i = lenth-1; i > 0; i--)
@@ -86,11 +86,14 @@ bool Snake::snakeInMap(const vector<vector<int>>& map)
 {
 	int rows = map.size();
 	int cols = map[0].size();
-	for (int i = 0; i < Body.size() - 1; i++)
+	if (Body[0].col == 0 || Body[0].col == cols ||
+		Body[0].row == 0 || Body[0].row == rows)
 	{
-		if (Body[i].col < 0 || Body[i].col >= cols ||
-			Body[i].row < 0 || Body[i].row >= rows ||
-			map[Body[i].row][Body[i].col])
+		return false;
+	}
+	for (int i = 0; i < Body.size(); i++)
+	{
+		if (Body[i].col == Body[0].col && Body[i].row == Body[0].row)
 		{
 			return false;
 		}
@@ -98,9 +101,9 @@ bool Snake::snakeInMap(const vector<vector<int>>& map)
 	return true;
 }
 
-Point Snake::getSnakeInfo()
+Point Snake::getSnakeInfo(int i)
 {
-	
+	return Body[i];
 }
 
 

@@ -1,5 +1,6 @@
 #include "Gluttonou.h"
 #include "Snake.h"
+#include <random>
 
 const int SPEED_NORMAL = 500;
 const int SPEED_QUIK = 50;
@@ -25,6 +26,9 @@ Gluttonou::Gluttonou(int rows, int cols, int unitSize,int leftmargin,int topmarg
 
 void Gluttonou::init()
 {
+	//配置随机种子
+	srand(time(NULL));
+
 	delay = SPEED_NORMAL;
 	//创建游戏窗口
 	initgraph(720, 720);
@@ -46,6 +50,7 @@ void Gluttonou::play()
 {
 	init();
 
+	foods = new Food(map);
 	mysnake = new Snake;
 
 	int timer = 0;
