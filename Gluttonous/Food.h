@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <graphics.h>
+#include "Snake.h"
 using namespace std;
 
 struct Pos {
@@ -12,8 +13,10 @@ class Food
 {
 public:
 	Food(static vector<vector<int>> map);
-	void setFood();
+	void setFood(static vector<vector<int>> map,Snake* snake);
 	void destroyFood();
+	void drawFood();
+	Pos getFoodIfo();
 
 private:
 	Pos food;
@@ -22,5 +25,6 @@ private:
 	IMAGE* BigFood;
 	IMAGE* SmallFood;
 	static IMAGE* imgs[2];
+	Snake* theSnake;
 };
 

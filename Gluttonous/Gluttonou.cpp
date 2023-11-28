@@ -52,8 +52,9 @@ void Gluttonou::play()
 
 	foods = new Food(map);
 	mysnake = new Snake;
-
+	
 	int timer = 0;
+
 	while (1)
 	{
 		//接受输入
@@ -72,6 +73,13 @@ void Gluttonou::play()
 		{
 			update = false;
 			//更新游戏数据
+			//生成食物
+			if (foods->getFoodIfo().col == mysnake->getSnakeInfo(0).col &&
+				foods->getFoodIfo().row == mysnake->getSnakeInfo(0).row)
+			{
+				foods->setFood(map,mysnake);
+			}
+			//结束游戏
 			if (!mysnake->snakeInMap(map)) {
 
 			}
@@ -90,8 +98,10 @@ void Gluttonou::keyEvent()
 void Gluttonou::updateWindow()
 {
 	putimage(0, 0, &bgImg);//绘制背景图片
+
 	
 	mysnake->draw(leftm, topm);
+	foods->drawFood();
 }
 
 int Gluttonou::getDelay()

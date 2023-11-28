@@ -30,12 +30,36 @@ Food::Food(static vector<vector<int>> map)
 	food.row = rand() % rows;
 }
 
-void Food::setFood()
+void Food::setFood(static vector<vector<int>> map,Snake* snake)
 {
-	int x = food.col;
-	int y = food.col;
+	int rows = map.size();
+	int cols = map[0].size();
+	int x = 1 + rand() % cols;
+	int y = 1 + rand() % rows;
+	for (int i = 0; i < snake->getSnakeInfo().size(); i++)
+	{
+		if (snake->getSnakeInfo(i).col != x ||
+			snake->getSnakeInfo(i).row != y)
+		{
+			food.col = x;
+			food.row = y;
+		}
+	}
 }
 
 void Food::destroyFood()
 {
+
+}
+
+void Food::drawFood()
+{
+	int x = food.col * size;
+	int y = food.row * size;
+	putimage(x, y, imgs[foodType - 1]);
+}
+
+Pos Food::getFoodIfo()
+{
+	return food;
 }

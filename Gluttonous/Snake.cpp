@@ -106,5 +106,12 @@ Point Snake::getSnakeInfo(int i)
 	return Body[i];
 }
 
+vector<Point> Snake::getSnakeInfo()
+{
+	return Body;
+}
+
+
+
 
 

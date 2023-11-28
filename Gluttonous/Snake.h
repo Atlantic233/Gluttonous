@@ -20,6 +20,7 @@ public:
 	void draw(int leftMargin,int topMargin);
 	bool snakeInMap(const vector<vector<int>>& map);
 	Point getSnakeInfo(int i);
+	vector<Point> getSnakeInfo();
 
 private:
 	Point unityBody;
