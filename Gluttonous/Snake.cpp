@@ -38,6 +38,9 @@ Snake::Snake()
 
 void Snake::growup()
 {
+	newBody.col = Body.back().col + 1;
+	newBody.row = Body.back().row + 1;
+	Body.push_back(newBody);
 }
 
 void Snake::move()

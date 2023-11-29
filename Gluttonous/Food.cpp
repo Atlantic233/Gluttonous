@@ -45,6 +45,7 @@ void Food::setFood(static vector<vector<int>> map,Snake* snake)
 			food.row = y;
 		}
 	}
+	snake->growup();
 }
 
 void Food::destroyFood()
