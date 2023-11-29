@@ -11,7 +11,7 @@ Snake::Snake()
 	if (imgs[0] == NULL)
 	{
 		IMAGE imgTmp;
-		loadimage(&imgTmp, "res/snakebd3.png");
+		loadimage(&imgTmp, "res/snakebd4.png");
 
 		SetWorkingImage(&imgTmp);
 		for (int i = 0; i < 3; i++)
@@ -42,21 +42,104 @@ void Snake::growup()
 
 void Snake::move()
 {
-	if (Body[0].direction == 0)
-	{
-		int lenth = Body.size();
-		for (int i = lenth-1; i > 0; i--)
+	int lenth = Body.size();
+	switch (Body[0].direction) {
+	case 0:
+		for (int i = lenth - 1; i > 0; i--)
 		{
 			Body[i].col = Body[i - 1].col;
 			Body[i].row = Body[i - 1].row;
 		}
 		Body[0].col--;
+		break;
+	case 1:
+		for (int i = lenth - 1; i > 0; i--)
+		{
+			Body[i].col = Body[i - 1].col;
+			Body[i].row = Body[i - 1].row;
+		}
+		Body[0].row--;
+		break;
+	case 2:
+		for (int i = lenth - 1; i > 0; i--)
+		{
+			Body[i].col = Body[i - 1].col;
+			Body[i].row = Body[i - 1].row;
+		}
+		Body[0].col++;
+		break;
+	case 3:
+		for (int i = lenth - 1; i > 0; i--)
+		{
+			Body[i].col = Body[i - 1].col;
+			Body[i].row = Body[i - 1].row;
+		}
+		Body[0].row++;
+		break;
 	}
 }
 
-void Snake::turn()
+void Snake::turn(char ch)
 {
-
+	int snakeDirection = Body[0].direction;
+	switch (ch) {
+	case'w':
+		switch (snakeDirection) {
+		case 0:
+			Body[0].direction = 1;
+			break;
+		case 1:
+			break;
+		case 2:
+			Body[0].direction = 1;
+			break;
+		case 3:
+			break;
+		}
+		break;
+	case'a':
+		switch (snakeDirection) {
+		case 0:
+			break;
+		case 1:
+			Body[0].direction = 0;
+			break;
+		case 2:
+			break;
+		case 3:
+			Body[0].direction = 0;
+			break;
+		}
+		break;
+	case's':
+		switch (snakeDirection) {
+		case 0:
+			Body[0].direction = 3;
+			break;
+		case 1:
+			break;
+		case 2:
+			Body[0].direction = 3;
+			break;
+		case 3:
+			break;
+		}
+		break;
+	case'd':
+		switch (snakeDirection) {
+		case 0:
+			break;
+		case 1:
+			Body[0].direction = 2;
+			break;
+		case 2:
+			break;
+		case 3:
+			Body[0].direction = 2;
+			break;
+		}
+		break;
+	}
 }
 
 void Snake::draw(int leftMargin, int topMargin)

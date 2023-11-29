@@ -20,7 +20,7 @@ private:
 	void updateWindow();
 	int getDelay();//返回上一次调用函数所用的时间
 	void move();
-	void turn();
+	//void turn();
 	void growup();
 	void mapIfo(vector<vector<int>> map);
 	

@@ -16,7 +16,7 @@ public:
 	Snake();
 	void growup();
 	void move();
-	void turn();
+	void turn(char ch);
 	void draw(int leftMargin,int topMargin);
 	bool snakeInMap(const vector<vector<int>>& map);
 	Point getSnakeInfo(int i);

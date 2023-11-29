@@ -26,16 +26,16 @@ Food::Food(static vector<vector<int>> map)
 	}
 
 	//初始化食物
-	food.col = rand() % cols;
-	food.row = rand() % rows;
+	food.col = 1 + rand() % (cols - 1);
+	food.row = 1 + rand() % (rows - 1);
 }
 
 void Food::setFood(static vector<vector<int>> map,Snake* snake)
 {
 	int rows = map.size();
 	int cols = map[0].size();
-	int x = 1 + rand() % cols;
-	int y = 1 + rand() % rows;
+	int x = 1 + rand() % (cols - 1);
+	int y = 1 + rand() % (rows - 1);
 	for (int i = 0; i < snake->getSnakeInfo().size(); i++)
 	{
 		if (snake->getSnakeInfo(i).col != x ||

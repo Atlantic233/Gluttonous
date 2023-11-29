@@ -58,8 +58,8 @@ void Gluttonou::play()
 
 	while (1)
 	{
-		//接受输入
-		keyEvent();
+
+		//keyEvent();
 		timer += getDelay();
 
 		if (timer > delay)
@@ -74,17 +74,22 @@ void Gluttonou::play()
 		{
 			update = false;
 			//更新游戏数据
-			//生成食物
-			if (foods->getFoodIfo().col == mysnake->getSnakeInfo(0).col &&
-				foods->getFoodIfo().row == mysnake->getSnakeInfo(0).row)
-			{
-				foods->setFood(map,mysnake);
-			}
+
 			//结束游戏
 			if (!mysnake->snakeInMap(map)) {
 
 			}
+			//接收输入
+			keyEvent();
+			//移动
 			move();
+			//生成食物
+			if (foods->getFoodIfo().col == mysnake->getSnakeInfo(0).col &&
+				foods->getFoodIfo().row == mysnake->getSnakeInfo(0).row)
+			{
+				foods->setFood(map, mysnake);
+				update = true;
+			}
 			//渲染游戏画面
 			updateWindow();
 		}
@@ -94,8 +99,10 @@ void Gluttonou::play()
 
 void Gluttonou::keyEvent()
 {
-	if (kbhit()) {
-		getch();
+	char ch;
+	if (_kbhit()) {
+		ch = _getch();
+		mysnake->turn(ch);
 	}
 }
 
@@ -134,10 +141,10 @@ void Gluttonou::move()
 	mysnake->move();
 }
 
-void Gluttonou::turn()
-{
-	//mysnake->turn();
-}
+//void Gluttonou::turn()
+//{
+//	mysnake->turn();
+//}
 
 void Gluttonou::growup()
 {
