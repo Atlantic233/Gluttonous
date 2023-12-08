@@ -172,12 +172,12 @@ bool Snake::snakeInMap(const vector<vector<int>>& map)
 {
 	int rows = map.size();
 	int cols = map[0].size();
-	if (Body[0].col == 0 || Body[0].col == cols ||
-		Body[0].row == 0 || Body[0].row == rows)
+	if (Body[0].col <= 0 || Body[0].col >= cols ||
+		Body[0].row <= 0 || Body[0].row >= rows)
 	{
 		return false;
 	}
-	for (int i = 0; i < Body.size(); i++)
+	for (int i = 1; i < Body.size(); i++)
 	{
 		if (Body[i].col == Body[0].col && Body[i].row == Body[0].row)
 		{

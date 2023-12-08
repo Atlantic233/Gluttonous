@@ -23,6 +23,7 @@ private:
 	//void turn();
 	void growup();
 	void mapIfo(vector<vector<int>> map);
+	void GameOver();
 	
 private:
 	int delay;
@@ -35,6 +36,7 @@ private:
 	int topm;
 	int unitsize;
 	IMAGE bgImg;
+	IMAGE failedImg;
 
 	Snake* mysnake;
 	Food* foods;

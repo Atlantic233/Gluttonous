@@ -35,7 +35,7 @@ void Gluttonou::init()
 	initgraph(720, 720);
 	//加载背景图片
 	loadimage(&bgImg, "res/map3.png");
-
+	loadimage(&failedImg, "res/failed.png");
 	//初始化游戏区中的数据
 	char data[30][30];
 	for (int i = 0; i < rows; i++)
@@ -77,7 +77,8 @@ void Gluttonou::play()
 
 			//结束游戏
 			if (!mysnake->snakeInMap(map)) {
-
+				GameOver();
+				//break;
 			}
 			//接收输入
 			keyEvent();
@@ -154,3 +155,10 @@ void Gluttonou::mapIfo(vector<vector<int>> map)
 {
 	
 }
+
+void Gluttonou::GameOver()
+{
+	putimage(0, 0, &failedImg);
+}
+
+
