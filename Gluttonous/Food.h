@@ -16,11 +16,13 @@ public:
 	void setFood(static vector<vector<int>> map,Snake* snake);
 	void destroyFood();
 	void drawFood();
+	int recordCore();
 	Pos getFoodIfo();
 
 private:
 	Pos food;
 	int foodType;
+	int core;
 	static int size;
 	IMAGE* BigFood;
 	IMAGE* SmallFood;

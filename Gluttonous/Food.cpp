@@ -60,6 +60,11 @@ void Food::drawFood()
 	putimage(x, y, imgs[foodType - 1]);
 }
 
+int Food::recordCore()
+{
+	return 0;
+}
+
 Pos Food::getFoodIfo()
 {
 	return food;

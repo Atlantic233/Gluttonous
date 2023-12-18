@@ -78,7 +78,7 @@ void Gluttonou::play()
 			//结束游戏
 			if (!mysnake->snakeInMap(map)) {
 				GameOver();
-				//break;
+				break;
 			}
 			//接收输入
 			keyEvent();
@@ -159,6 +159,7 @@ void Gluttonou::mapIfo(vector<vector<int>> map)
 void Gluttonou::GameOver()
 {
 	putimage(0, 0, &failedImg);
+	
 }
 
 
